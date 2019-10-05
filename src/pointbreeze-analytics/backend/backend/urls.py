@@ -14,8 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from pointbreeze_analytics import views
 
 urlpatterns = [
+    path('/', views.index, name='landing'),
     path('admin/', admin.site.urls),
+    path('home/', views.home, name='login-home')
 ]
