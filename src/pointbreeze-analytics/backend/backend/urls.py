@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pointbreeze_analytics import views
+from rest_framework_jwt.views import obtain_jwt_token
+
 
 urlpatterns = [
     path('/', views.index, name='landing'),
     path('admin/', admin.site.urls),
-    path('home/', views.home, name='login-home')
+    path('home/', views.home, name='login-home'),
+    path('token-auth/',obtain_jwt_token)
 ]
